@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .invalid{
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input id="email" placeholder="Enter Email" type="email"/>
+        <div id="error"></div>
+    </form>
+    <script>
+        let input=document.getElementById('email')
+        let error=document.getElementById('error')
+        input.onblur=function(){
+          if(!input.value.includes("@")){
+            input.classList.add("invalid")
+            error.innerHTML="You have entered invalid email address"
+            input.focus() //to focus in the field,can't go outside
+          }
+        }
+        input.onfocus=function(){
+            if(this.classList.contains(invalid)){
+                //remove the class
+                this.classlist.remove("invalid")
+                error.innerHTML=""
+            }
+        }
+    </script>
+</body>
+</html>
